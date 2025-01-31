@@ -2,7 +2,7 @@ import tkinter as tk
 from logic import *
 
 # Function to handle a button click
-def button_click():
+def button_click(event=None):  # Accept the event parameter for key bindings
     try:
         user_inp = searchEntry.get().strip()
         num = int(user_inp)
@@ -48,6 +48,9 @@ label2.pack()
 searchEntry = tk.Entry(window)
 searchEntry.pack()
 
+# Bind the Enter key to trigger the button click function
+searchEntry.bind("<Return>", button_click)
+
 # Button widget
 button1 = tk.Button(window, text="Enter", command=button_click)
 button1.pack()
@@ -56,5 +59,4 @@ button1.pack()
 result_label = tk.Label(window, text="", bg="lightgray", width=50, height=10, anchor="nw")
 result_label.pack(pady=10)
 
-# Start the event loop
-window.mainloop()
+

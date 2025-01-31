@@ -1,4 +1,4 @@
-
+from gui import *
 
 def prime_checker(num):
     # check if num is greater than 1
@@ -40,8 +40,15 @@ def perfect_number_checker(num):
     return divisor_sum == num
 
 def parity_checker(num):
-    # check if its even or odd
     if num % 2 == 0:
         return "even"
     else:
         return "odd"
+    
+
+# WANT TO ADD:
+# Square checker
+# Cube checker
+# Factorial checker
+# Divisors list
+# Multiples
