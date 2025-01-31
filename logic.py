@@ -84,18 +84,6 @@ def is_fibonacci(num):
 
     return is_perfect_square(5 * num * num + 4) or is_perfect_square(5 * num * num - 4)
 
-# prime factors of a number
-def get_prime_factors(num):
-    factors = []
-    i = 2
-    while i * i <= abs(num):
-        while num % i == 0:
-            factors.append(i)
-            num //= i
-        i += 1
-    if num > 1:
-        factors.append(num)
-    return factors
 
 def is_sublime(num):
     # count the total number of divisors of n
@@ -104,14 +92,19 @@ def is_sublime(num):
     # store the result in a variable
     # check whether the total and sum are perfect numbers are not
     # if they are, num is a sublime number
+    if num <= 1:
+        return False
+    
     count = len(get_divisors(num))
     total = sum(get_divisors(num))
     if is_perfect(count) and is_perfect(total):
         return True
+    
+def is_triangular(num):
+    if num >= 1 and (num * (num + 1) / 2):
+        return True if num.is_integer() else False
         
-    
-    
-
+        
 
 # WANT TO ADD:
 # Multiples

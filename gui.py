@@ -17,8 +17,8 @@ def button_click(event=None):  # Accept the event parameter for key bindings
         divisors = get_divisors(num)
         factorial = is_factorial(num)
         fibonacci = is_fibonacci(num)
-        prime_factors = get_prime_factors(num)
         sublime = is_sublime(num)
+        triangular = is_triangular(num)
 
         # Format results
         results = []
@@ -47,8 +47,9 @@ def button_click(event=None):  # Accept the event parameter for key bindings
                 results.append(f"{num} is a Fibonacci Number.")
             if sublime:
                 results.append(f"{num} is sublime.")
+            if triangular:
+                results.append(f"{num} is triangular.")
             
-            results.append(f"Prime: {prime_factors}")
 
         # Update the result label
         result_label.config(text="\n".join(results))
