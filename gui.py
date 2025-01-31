@@ -8,16 +8,17 @@ def button_click(event=None):  # Accept the event parameter for key bindings
         num = int(user_inp)
 
         # Call logic functions and get results
-        prime = prime_checker(num)
+        prime = is_prime(num)
         parity = parity_checker(num)
-        perfect = perfect_number_checker(num)
-        composite = composite_checker(num)
+        perfect = is_perfect(num)
+        composite = is_composite(num)
         square = square_checker(num)
         cube = cube_checker(num)
         divisors = get_divisors(num)
         factorial = is_factorial(num)
         fibonacci = is_fibonacci(num)
         prime_factors = get_prime_factors(num)
+        sublime = is_sublime(num)
 
         # Format results
         results = []
@@ -44,6 +45,8 @@ def button_click(event=None):  # Accept the event parameter for key bindings
                 results.append(f"{num} is a factorial of ({factorial}!)")
             if fibonacci:
                 results.append(f"{num} is a Fibonacci Number.")
+            if sublime:
+                results.append(f"{num} is sublime.")
             
             results.append(f"Prime: {prime_factors}")
 

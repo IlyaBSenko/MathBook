@@ -1,6 +1,6 @@
 from gui import *
 
-def prime_checker(num):
+def is_prime(num):
     # check if num is greater than 1
     # check if it can only be divided evenly by 1 and itself (only has two factors)
     if num < 2:
@@ -14,13 +14,13 @@ def prime_checker(num):
     return True
 
 
-def composite_checker(num):
-    if num > 1 and not prime_checker(num):
+def is_composite(num):
+    if num > 1 and not is_prime(num):
         return True
     return False
 
 
-def perfect_number_checker(num):
+def is_perfect(num):
     # add up all of its positive divisors, excluding the number itself, and see if the sum equals the original number
     if num <= 0:
         return False
@@ -97,7 +97,19 @@ def get_prime_factors(num):
         factors.append(num)
     return factors
 
-def sublime_checker(num):
+def is_sublime(num):
+    # count the total number of divisors of n
+    # store that total number in a variable (total)
+    # sum the divisors
+    # store the result in a variable
+    # check whether the total and sum are perfect numbers are not
+    # if they are, num is a sublime number
+    count = len(get_divisors(num))
+    total = sum(get_divisors(num))
+    if is_perfect(count) and is_perfect(total):
+        return True
+        
+    
     
 
 
