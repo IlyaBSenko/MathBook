@@ -97,6 +97,9 @@ def get_prime_factors(num):
         factors.append(num)
     return factors
 
+def sublime_checker(num):
+    
+
 
 # WANT TO ADD:
 # Multiples
