@@ -12,11 +12,19 @@ def button_click(event=None):  # Accept the event parameter for key bindings
         parity = parity_checker(num)
         perfect = perfect_number_checker(num)
         composite = composite_checker(num)
+        square = square_checker(num)
+        cube = cube_checker(num)
+        divisors = get_divisors(num)
+        factorial = is_factorial(num)
+        fibonacci = is_fibonacci(num)
+        prime_factors = get_prime_factors(num)
 
         # Format results
         results = []
         results.append(f"{num} is {parity}.")
 
+        if num < 0:
+            results.append(f"{num} is negative.")
         if num <= 0:
             results.append(f"{num} is neither prime nor composite.")
         else:
@@ -26,6 +34,18 @@ def button_click(event=None):  # Accept the event parameter for key bindings
                 results.append(f"{num} is composite.")
             if perfect:
                 results.append(f"{num} is perfect.")
+            if square:
+                results.append(f"{num} is a square number.")
+            if cube:
+                results.append(f"{num} is a cube number.")
+            if divisors:
+                results.append(f"Divisors: {divisors}")
+            if factorial:
+                results.append(f"{num} is a factorial of ({factorial}!)")
+            if fibonacci:
+                results.append(f"{num} is a Fibonacci Number.")
+            
+            results.append(f"Prime: {prime_factors}")
 
         # Update the result label
         result_label.config(text="\n".join(results))

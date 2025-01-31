@@ -44,11 +44,64 @@ def parity_checker(num):
         return "even"
     else:
         return "odd"
+
+# A number is a square number if it can be expressed as the square of an integer
+def square_checker(num):
+    return num >= 0 and int(num ** 0.5) ** 2 == num
+
+# A number is a cube number if it can be expressed as the cube of an integer
+def cube_checker(num):
+    return  round(num ** (1 / 3)) ** 3 == num
+
+# Show all positive divisors of a number
+def get_divisors(num):
+    if num == 0:
+        return []
+    divisors = []
+    for i in range(1, int(abs(num) ** 0.5) + 1):
+        if num % i == 0:
+            divisors.append(i)
+            if i != num // i:
+                divisors.append(num // i)
+    return sorted(divisors)
+
+# Check if a number is a factorial of some integer
+def is_factorial(num):
+    if num < 0:
+        return False
+    fact = 1
+    i = 1
+    while fact < num:
+        i += 1
+        fact *= i
+    return fact == num
     
+# A number is part of the Fibonacci sequence if one of these two conditions is true:
+# 5 * num^2 + 4 or 5 * num^2 - 4 is a perfect square
+def is_fibonacci(num):
+    def is_perfect_square(n):
+        return int(n ** 0.5) ** 2 == n
+
+    return is_perfect_square(5 * num * num + 4) or is_perfect_square(5 * num * num - 4)
+
+# prime factors of a number
+def get_prime_factors(num):
+    factors = []
+    i = 2
+    while i * i <= abs(num):
+        while num % i == 0:
+            factors.append(i)
+            num //= i
+        i += 1
+    if num > 1:
+        factors.append(num)
+    return factors
+
 
 # WANT TO ADD:
-# Square checker
-# Cube checker
-# Factorial checker
-# Divisors list
 # Multiples
+# prime factors
+# Perfect square root, display square root of a perfect squared 
+# triangular checker
+# palindrome checker
+# armstrong number checker
