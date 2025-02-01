@@ -41,8 +41,6 @@ def button_click(event=None):  # Accept the event parameter for key bindings
                 results.append(f"{num} is a cube number.")
             if divisors:
                 results.append(f"Divisors: {divisors}")
-            if factorial:
-                results.append(f"{num} is a factorial of ({factorial}!)")
             if fibonacci:
                 results.append(f"{num} is a Fibonacci Number.")
             if sublime:
@@ -51,6 +49,7 @@ def button_click(event=None):  # Accept the event parameter for key bindings
                 results.append(f"{num} is triangular.")
             
 
+        results.append(f"The factorial of {num} is ({factorial}!)")
         # Update the result label
         result_label.config(text="\n".join(results))
 

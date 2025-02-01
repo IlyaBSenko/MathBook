@@ -1,4 +1,5 @@
 from gui import *
+import math
 
 def is_prime(num):
     # check if num is greater than 1
@@ -67,14 +68,13 @@ def get_divisors(num):
 
 # Check if a number is a factorial of some integer
 def is_factorial(num):
+    # multiply num by every pos int below it, all the way down to 1
     if num < 0:
         return False
-    fact = 1
-    i = 1
-    while fact < num:
-        i += 1
-        fact *= i
-    return fact == num
+    if num == 1:
+        return 1
+    fact = math.factorial(num)
+    return fact
     
 # A number is part of the Fibonacci sequence if one of these two conditions is true:
 # 5 * num^2 + 4 or 5 * num^2 - 4 is a perfect square
@@ -101,8 +101,13 @@ def is_sublime(num):
         return True
     
 def is_triangular(num):
-    if num >= 1 and (num * (num + 1) / 2):
-        return True if num.is_integer() else False
+    if num < 0:
+        return False
+
+    x = (-1 + (1 + 8 * num) ** 0.5) / 2
+
+    return x == int(x)
+    
         
         
 
