@@ -23,14 +23,20 @@ def button_click(event=None):  # Accept the event parameter for key bindings
         armstrong = is_armstrong(num)
         perfect_square_root = is_perfect_SR(num)
         square_root = get_square_root(num)
+        multiples = get_multiples(num)
+
 
         # Format results
         results = []
         results.append(f"{num} is {parity}.")
-        # results.append(f"The square root of {num} is {squareRoot}.")
 
         if num < 0:
             results.append(f"{num} is negative.")
+            
+        if num == 0:
+            results.append(f"{num} is a multiple of every number.")
+        else:
+            results.append(f"The first 5 multiples of {num} are {multiples}.")
             
         if num <= 0:
             results.append(f"{num} is neither prime nor composite.")

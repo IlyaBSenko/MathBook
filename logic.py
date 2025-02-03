@@ -156,9 +156,20 @@ def is_perfect_SR(num):
                 return i
             continue
         
+def get_multiples(num):
+    if num == 0:
+        return "0 is a multiple of every number."
+    
+    multiples_list = [1, 2, 3, 4, 5]
+    results = []
+    
+    for i in multiples_list:
+        results.append(num * i)
+    
+    return results
+        
 
 
 # WANT TO ADD:
 # Multiples
 # prime factors
-# Perfect square root, display square root of a perfect squared 
