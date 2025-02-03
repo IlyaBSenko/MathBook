@@ -105,7 +105,7 @@ button1 = tk.Button(window, text="Enter", command=button_click)
 button1.pack()
 
 # Label to display results
-result_label = tk.Label(window, text="", bg="lightgray", width=50, height=10, anchor="nw")
+result_label = tk.Label(window, text="", bg="lightgray", fg="black", width=50, height=10, anchor="nw")
 result_label.pack(pady=10)
 
 

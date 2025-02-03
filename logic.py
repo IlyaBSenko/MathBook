@@ -171,5 +171,4 @@ def get_multiples(num):
 
 
 # WANT TO ADD:
-# Multiples
 # prime factors
