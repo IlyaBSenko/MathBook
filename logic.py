@@ -118,13 +118,26 @@ def is_palindrome(num):
 
     return str(num) == str(num)[::-1]
 
+
+def is_armstrong(num):
+    true_num = num
+    str_num = str(num)
+    num_as_list = []
+
+    for num in str_num:
+        num_as_list.append(num)
+
+    total = 0
+    for num in num_as_list:
+        total += (int(num) ** 3)
+
+    if total == true_num:
+        return True
     
-        
-        
+
 
 # WANT TO ADD:
 # Multiples
 # prime factors
 # Perfect square root, display square root of a perfect squared 
-# palindrome checker
 # armstrong number checker

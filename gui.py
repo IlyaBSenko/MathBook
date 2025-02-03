@@ -20,6 +20,7 @@ def button_click(event=None):  # Accept the event parameter for key bindings
         sublime = is_sublime(num)
         triangular = is_triangular(num)
         palindrome = is_palindrome(num)
+        armstrong = is_armstrong(num)
 
         # Format results
         results = []
@@ -30,6 +31,7 @@ def button_click(event=None):  # Accept the event parameter for key bindings
         if num <= 0:
             results.append(f"{num} is neither prime nor composite.")
             results.append(f"{num} is a palindrome.")
+            results.append(f"{num} is an armstrong number.")
         else:
             if prime:
                 results.append(f"{num} is prime.")
@@ -51,6 +53,8 @@ def button_click(event=None):  # Accept the event parameter for key bindings
                 results.append(f"{num} is triangular.")
             if palindrome:
                 results.append(f"{num} is a palindrome.")
+            if armstrong:
+                results.append(f"{num} is an armstrong number.")
             
         if factorial == None:
             results.append(f"Number too big to check for factorial!")
