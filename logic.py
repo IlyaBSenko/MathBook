@@ -69,12 +69,15 @@ def get_divisors(num):
 # Check if a number is a factorial of some integer
 def is_factorial(num):
     # multiply num by every pos int below it, all the way down to 1
-    if num < 0:
-        return False
-    if num == 1:
-        return 1
-    fact = math.factorial(num)
-    return fact
+    if num <= 6:
+        if num < 0:
+            return False
+        if num == 1:
+            return 1
+        fact = math.factorial(num)
+        return fact
+    else:
+        return None
     
 # A number is part of the Fibonacci sequence if one of these two conditions is true:
 # 5 * num^2 + 4 or 5 * num^2 - 4 is a perfect square
@@ -107,6 +110,14 @@ def is_triangular(num):
     x = (-1 + (1 + 8 * num) ** 0.5) / 2
 
     return x == int(x)
+
+# with help from thomas for crazy python trick
+def is_palindrome(num):
+    if len(str(num)) < 2:
+        return True
+
+    return str(num) == str(num)[::-1]
+
     
         
         
@@ -115,6 +126,5 @@ def is_triangular(num):
 # Multiples
 # prime factors
 # Perfect square root, display square root of a perfect squared 
-# triangular checker
 # palindrome checker
 # armstrong number checker

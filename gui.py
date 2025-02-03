@@ -19,6 +19,7 @@ def button_click(event=None):  # Accept the event parameter for key bindings
         fibonacci = is_fibonacci(num)
         sublime = is_sublime(num)
         triangular = is_triangular(num)
+        palindrome = is_palindrome(num)
 
         # Format results
         results = []
@@ -28,6 +29,7 @@ def button_click(event=None):  # Accept the event parameter for key bindings
             results.append(f"{num} is negative.")
         if num <= 0:
             results.append(f"{num} is neither prime nor composite.")
+            results.append(f"{num} is a palindrome.")
         else:
             if prime:
                 results.append(f"{num} is prime.")
@@ -47,9 +49,13 @@ def button_click(event=None):  # Accept the event parameter for key bindings
                 results.append(f"{num} is sublime.")
             if triangular:
                 results.append(f"{num} is triangular.")
+            if palindrome:
+                results.append(f"{num} is a palindrome.")
             
-
-        results.append(f"The factorial of {num} is ({factorial}!)")
+        if factorial == None:
+            results.append(f"Number too big to check for factorial!")
+        else:
+            results.append(f"The factorial of {num} is ({factorial}!)")
         # Update the result label
         result_label.config(text="\n".join(results))
 
