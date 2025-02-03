@@ -134,10 +134,31 @@ def is_armstrong(num):
     if total == true_num:
         return True
     
+def get_square_root(num):
+    if num < 0:
+        return False
+    
+    if num == 0:
+        return 0
+    
+    return f"{math.sqrt(num):.3f}"
+    
+def is_perfect_SR(num):
+    if num < 0:
+        return False
+    
+    if num == 0:
+        return 0
+        
+    else:
+        for i in range(num):
+            if i * i == num:
+                return i
+            continue
+        
 
 
 # WANT TO ADD:
 # Multiples
 # prime factors
 # Perfect square root, display square root of a perfect squared 
-# armstrong number checker

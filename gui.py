@@ -21,17 +21,25 @@ def button_click(event=None):  # Accept the event parameter for key bindings
         triangular = is_triangular(num)
         palindrome = is_palindrome(num)
         armstrong = is_armstrong(num)
+        perfect_square_root = is_perfect_SR(num)
+        square_root = get_square_root(num)
 
         # Format results
         results = []
         results.append(f"{num} is {parity}.")
+        # results.append(f"The square root of {num} is {squareRoot}.")
 
         if num < 0:
             results.append(f"{num} is negative.")
+            
         if num <= 0:
             results.append(f"{num} is neither prime nor composite.")
             results.append(f"{num} is a palindrome.")
             results.append(f"{num} is an armstrong number.")
+            
+        if not perfect_square_root:
+            results.append(f"The square root of {num} is {square_root}")
+            
         else:
             if prime:
                 results.append(f"{num} is prime.")
@@ -55,6 +63,8 @@ def button_click(event=None):  # Accept the event parameter for key bindings
                 results.append(f"{num} is a palindrome.")
             if armstrong:
                 results.append(f"{num} is an armstrong number.")
+            if perfect_square_root:
+                results.append(f"The square root of {num} is {perfect_square_root}")
             
         if factorial == None:
             results.append(f"Number too big to check for factorial!")
