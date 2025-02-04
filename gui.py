@@ -79,51 +79,62 @@ def button_click(event=None, result_widget=None):
         elif isinstance(result_widget, tk.Label):
             result_widget.config(text="Please enter a valid number.")
             
-def show_search_entry_prop():
-    create_search_window("Properties", button_click)
-    
-def show_search_entry_trivia():
-    create_search_window("Trivia", button_click)
-    
-def show_search_entry_lore():
-    create_search_window("Lore", button_click)
-    
-# for real world applications
-def show_search_entry_RW():
-    create_search_window("Real World Applications", button_click)
-    
-def create_search_window(title, button_click_callback):
-    topLevel = tk.Toplevel()
-    topLevel.title(title)
+def update_results(event, result_text, button_click_callback):
+    button_click_callback(event, result_text)
 
-    searchEntry = tk.Entry(topLevel)
+def create_search_window(title, button_click_callback):
+    clear_window()
+
+    title_label = tk.Label(window, text=title, font=("Arial", 14, "bold"))
+    title_label.pack(pady=10)
+
+    searchEntry = tk.Entry(window)
     searchEntry.pack()
 
-    result_text = tk.Text(topLevel, height=10, width=50)
+    result_text = tk.Text(window, height=10, width=50)
     result_text.pack(pady=10)
 
     searchEntry.bind("<Return>", lambda event: update_results(event, result_text, button_click_callback))
 
-    return topLevel
+    back_button = tk.Button(window, text="Back to Main Menu", command=show_main_menu)
+    back_button.pack(pady=10)
 
-def update_results(event, result_text, button_click_callback):
-    button_click_callback(event, result_text)
+def clear_window():
+    for widget in window.winfo_children():
+        widget.destroy()
 
-    
+def show_main_menu():
+    clear_window()
+
+    label1 = tk.Label(window, text="Hello! Welcome to MathBook!")
+    label1.pack()
+
+    label2 = tk.Label(window, text="Click what you would like to learn!")
+    label2.pack()
+
+    button1 = tk.Button(window, text="Properties", command=show_search_entry_prop)
+    button2 = tk.Button(window, text="Trivia", command=show_search_entry_trivia)
+    button3 = tk.Button(window, text="Lore", command=show_search_entry_lore)
+    button4 = tk.Button(window, text="Real World Applications", command=show_search_entry_RW)
+    button1.pack(pady=5)
+    button2.pack(pady=5)
+    button3.pack(pady=5)
+    button4.pack(pady=5)
+
+def show_search_entry_prop():
+    create_search_window("Properties", button_click)
+
+def show_search_entry_trivia():
+    create_search_window("Trivia", button_click)
+
+def show_search_entry_lore():
+    create_search_window("Lore", button_click)
+
+def show_search_entry_RW():
+    create_search_window("Real World Applications", button_click)
+
 window = tk.Tk()
 window.title("MathBook")
 
-label1 = tk.Label(window, text="Hello! Welcome to MathBook!")
-label1.pack()
+show_main_menu()
 
-label2 = tk.Label(window, text="Click what you would like to learn!")
-label2.pack()
-
-button1 = tk.Button(window, text="Properties", command=show_search_entry_prop)
-button2 = tk.Button(window, text="Trivia", command=show_search_entry_trivia)
-button3 = tk.Button(window, text="Lore", command=show_search_entry_lore)
-button4 = tk.Button(window, text="Real World Applications", command=show_search_entry_RW)
-button1.pack(pady=5)
-button2.pack(pady=5)
-button3.pack(pady=5)
-button4.pack(pady=5)
