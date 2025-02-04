@@ -41,11 +41,6 @@ def button_click(event=None, result_label=None):
             results.append(f"The first 5 multiples of {num} are {multiples}.")
             results.append(f"Divisors: {divisors}")
             
-        if num <= 0:
-            results.append(f"{num} is neither prime nor composite.")
-            results.append(f"{num} is a palindrome.")
-            results.append(f"{num} is an armstrong number.")
-            
         if not perfect_square_root:
             results.append(f"The square root of {num} is {square_root}")
             
@@ -101,7 +96,10 @@ def create_search_window(title, button_click_callback):
     searchEntry.pack()
 
     result_label = tk.Label(topLevel, text="", bg="lightgray", fg="black", width=50, height=10, anchor="nw")
-    result_label.pack(pady=10)
+    result_text = tk.Text(topLevel, height=10, width=50)
+    result_text.pack(pady=10)
+    searchEntry.bind("<Return>", lambda event: update_results(event, result_text, button_click_callback))
+
 
     # Bind Enter key to trigger the callback
     searchEntry.bind("<Return>", lambda event: button_click_callback(event, result_label))
