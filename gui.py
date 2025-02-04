@@ -1,14 +1,12 @@
 import tkinter as tk
 from properties_logic import *
 
-# Function to handle a button click
-def button_click(event=None, result_label=None):       
+def button_click(event=None, result_widget=None):       
     try:
             
         user_inp = event.widget.get().strip()
         num = int(user_inp)
 
-        # Call logic functions and get results
         prime = is_prime(num)
         parity = parity_checker(num)
         perfect = is_perfect(num)
@@ -27,7 +25,6 @@ def button_click(event=None, result_label=None):
         multiples = get_multiples(num)
 
 
-        # Format results
         results = []
         results.append(f"{num} is {parity}.")
 
@@ -36,7 +33,7 @@ def button_click(event=None, result_label=None):
             
         if num == 0:
             results.append(f"{num} is a multiple of every number.")
-            results.append("Every non-zero number is considered a divisor of {num}.")
+            results.append(f"Every non-zero number is considered a divisor of {num}.")
         else:
             results.append(f"The first 5 multiples of {num} are {multiples}.")
             results.append(f"Divisors: {divisors}")
@@ -60,6 +57,7 @@ def button_click(event=None, result_label=None):
         for condition, message in property_checks:
             if condition:
                 results.append(message)
+        
         if perfect_square_root:
             results.append(f"The square root of {num} is {perfect_square_root}")
         
@@ -67,11 +65,19 @@ def button_click(event=None, result_label=None):
             results.append(f"Number too big to check for factorial!")
         else:
             results.append(f"The factorial of {num} is ({factorial}!)")
-        # Update the result label
-        result_label.config(text="\n".join(results))
+    
+        if isinstance(result_widget, tk.Text):
+            result_widget.delete(1.0, tk.END)
+            result_widget.insert(tk.END, "\n".join(results))
+        else:
+            result_widget.config(text="\n".join(results))
 
     except ValueError:
-        result_label.config(text="Please enter a valid number.")
+        if isinstance(result_widget, tk.Text):
+            result_widget.delete(1.0, tk.END)
+            result_widget.insert(tk.END, "Please enter a valid number.")
+        elif isinstance(result_widget, tk.Label):
+            result_widget.config(text="Please enter a valid number.")
             
 def show_search_entry_prop():
     create_search_window("Properties", button_click)
@@ -87,43 +93,37 @@ def show_search_entry_RW():
     create_search_window("Real World Applications", button_click)
     
 def create_search_window(title, button_click_callback):
-    # Create a new window
     topLevel = tk.Toplevel()
     topLevel.title(title)
 
-    # Add a search entry and result label
     searchEntry = tk.Entry(topLevel)
     searchEntry.pack()
 
-    result_label = tk.Label(topLevel, text="", bg="lightgray", fg="black", width=50, height=10, anchor="nw")
     result_text = tk.Text(topLevel, height=10, width=50)
     result_text.pack(pady=10)
+
     searchEntry.bind("<Return>", lambda event: update_results(event, result_text, button_click_callback))
-
-
-    # Bind Enter key to trigger the callback
-    searchEntry.bind("<Return>", lambda event: button_click_callback(event, result_label))
 
     return topLevel
 
+def update_results(event, result_text, button_click_callback):
+    button_click_callback(event, result_text)
+
     
-# Main window setup
 window = tk.Tk()
 window.title("MathBook")
 
-# Label widgets
 label1 = tk.Label(window, text="Hello! Welcome to MathBook!")
 label1.pack()
 
 label2 = tk.Label(window, text="Click what you would like to learn!")
 label2.pack()
 
-# Button widget
 button1 = tk.Button(window, text="Properties", command=show_search_entry_prop)
 button2 = tk.Button(window, text="Trivia", command=show_search_entry_trivia)
 button3 = tk.Button(window, text="Lore", command=show_search_entry_lore)
 button4 = tk.Button(window, text="Real World Applications", command=show_search_entry_RW)
-button1.pack()
-button2.pack()
-button3.pack()
-button4.pack()
+button1.pack(pady=5)
+button2.pack(pady=5)
+button3.pack(pady=5)
+button4.pack(pady=5)
