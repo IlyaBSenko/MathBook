@@ -35,7 +35,7 @@ def button_click(event=None, result_widget=None):
             results.append(f"{num} is a multiple of every number.")
             results.append(f"Every non-zero number is considered a divisor of {num}.")
         else:
-            results.append(f"The first 5 multiples of {num} are {multiples}.")
+            results.append(f"The first 5 multiples of {num} are {multiples}")
             results.append(f"Divisors: {divisors}")
             
         if not perfect_square_root:
