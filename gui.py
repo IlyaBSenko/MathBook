@@ -79,7 +79,8 @@ def button_click(event=None, result_widget=None):
         elif isinstance(result_widget, tk.Label):
             result_widget.config(text="Please enter a valid number.")
             
-def update_results(event, result_text, button_click_callback):
+def update_results(event, result_text, button_click_callback, searchEntry):
+    event = event or type('Event', (object,), {'widget': searchEntry})()  
     button_click_callback(event, result_text)
 
 def create_search_window(title, button_click_callback):
@@ -88,13 +89,19 @@ def create_search_window(title, button_click_callback):
     title_label = tk.Label(window, text=title, font=("Arial", 14, "bold"))
     title_label.pack(pady=10)
 
-    searchEntry = tk.Entry(window)
-    searchEntry.pack()
+    entry_frame = tk.Frame(window)
+    entry_frame.pack(pady=5)
+
+    searchEntry = tk.Entry(entry_frame)
+    searchEntry.pack(side="left", fill="x", expand=True)
+
+    search_button = tk.Button(entry_frame, text="Search", command=lambda: update_results(None, result_text, button_click_callback, searchEntry))
+    search_button.pack(side="right", padx=5)
 
     result_text = tk.Text(window, height=10, width=50)
     result_text.pack(pady=10)
 
-    searchEntry.bind("<Return>", lambda event: update_results(event, result_text, button_click_callback))
+    searchEntry.bind("<Return>", lambda event: update_results(event, result_text, button_click_callback, searchEntry))
 
     back_button = tk.Button(window, text="Back to Main Menu", command=show_main_menu)
     back_button.pack(pady=10)
