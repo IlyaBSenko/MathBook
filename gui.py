@@ -23,6 +23,7 @@ def button_click(event=None, result_widget=None):
         perfect_square_root = is_perfect_SR(num)
         square_root = get_square_root(num)
         multiples = get_multiples(num)
+        perfect_square = is_perfect_square(num)
 
 
         results = []
@@ -52,6 +53,7 @@ def button_click(event=None, result_widget=None):
             (triangular, f"{num} is triangular."),
             (palindrome, f"{num} is a palindrome."),
             (armstrong, f"{num} is an armstrong number."),
+            (perfect_square, f"{num} is a perfect square.")
         ]
 
         for condition, message in property_checks:

@@ -155,6 +155,11 @@ def get_multiples(num):
     
     return results
 
+def is_perfect_square(num):
+    if num < 0:
+        return False
+    return int(num ** 0.5) ** 2 == num
+
 
 # WANT TO ADD:
 # prime factors
