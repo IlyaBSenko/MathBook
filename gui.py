@@ -31,11 +31,11 @@ def button_click(event=None, result_widget=None):
         results.append(f"{num} is {parity}.")
 
         if num < 0:
-            results.append(f"{num} is negative and does not have properties like prime, composite, or multiples.")
+            results.append(f"{num} is negative and does not have properties like prime, composite, or multiples")
             
         if num == 0:
             results.append(f"{num} is a multiple of every number.")
-            results.append(f"Every non-zero number is considered a divisor of {num}.")
+            results.append(f"Every non-zero number is considered a divisor of {num}")
         else:
             results.append(f"The first 5 multiples of {num} are {multiples}")
             results.append(f"Divisors: {divisors}")
