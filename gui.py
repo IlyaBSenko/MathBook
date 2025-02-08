@@ -25,7 +25,7 @@ def button_click(event=None, result_widget=None):
         multiples = get_multiples(num)
         perfect_square = is_perfect_square(num)
         abundant = is_abundant(num)
-
+        automorphic = is_automorphic(num)
 
         results = []
         results.append(f"{num} is {parity}.")
@@ -55,7 +55,8 @@ def button_click(event=None, result_widget=None):
             (palindrome, f"{num} is a palindrome."),
             (armstrong, f"{num} is an armstrong number."),
             (perfect_square, f"{num} is a perfect square."),
-            (abundant, f"{num} is abundant.")
+            (abundant, f"{num} is abundant."),
+            (automorphic, f"{num} is automorphic.")
         ]
 
         for condition, message in property_checks:
@@ -126,11 +127,13 @@ def show_main_menu():
     button1 = tk.Button(window, text="Properties", command=show_search_entry_prop)
     button2 = tk.Button(window, text="Trivia", command=show_search_entry_trivia)
     button3 = tk.Button(window, text="Lore", command=show_search_entry_lore)
-    button4 = tk.Button(window, text="Real World Applications", command=show_search_entry_RW)
+    button4 = tk.Button(window, text="Definitions", command=show_search_entry_definitions)
+    button5 = tk.Button(window, text="Real World Applications", command=show_search_entry_RW)
     button1.pack(pady=5)
     button2.pack(pady=5)
     button3.pack(pady=5)
     button4.pack(pady=5)
+    button5.pack(pady=5)
 
 def show_search_entry_prop():
     create_search_window("Properties", button_click)
@@ -140,6 +143,9 @@ def show_search_entry_trivia():
 
 def show_search_entry_lore():
     create_search_window("Lore", button_click)
+
+def show_search_entry_definitions():
+    create_search_window("Definitions", button_click)
 
 def show_search_entry_RW():
     create_search_window("Real World Applications", button_click)

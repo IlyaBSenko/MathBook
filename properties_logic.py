@@ -165,6 +165,9 @@ def is_abundant(num):
         return False
     return sum(get_divisors(num)) - num > num
 
+def is_automorphic(num):
+    return str(num ** 2).endswith(str(num))
+
 
 # WANT TO ADD:
 # prime factors
