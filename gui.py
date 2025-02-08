@@ -1,5 +1,6 @@
 import tkinter as tk
 from properties_logic import *
+from definitions import *
 
 def button_click(event=None, result_widget=None):       
     try:
@@ -145,7 +146,30 @@ def show_search_entry_lore():
     create_search_window("Lore", button_click)
 
 def show_search_entry_definitions():
-    create_search_window("Definitions", button_click)
+    clear_window()
+
+    title_label = tk.Label(window, text="Definitions", font=("Arial", 14, "bold"))
+    title_label.pack(pady=10)
+
+    for property_name in get_property_names():
+        property_button = tk.Button(window, text=property_name, command=lambda p=property_name: show_definition(p))
+        property_button.pack(pady=5, fill="x")
+
+    back_button = tk.Button(window, text="Back to Main Menu", command=show_main_menu)
+    back_button.pack(pady=10)
+
+def show_definition(property_name):
+    clear_window()
+
+    title_label = tk.Label(window, text=property_name, font=("Arial", 14, "bold"))
+    title_label.pack(pady=10)
+
+    definition = get_property_definition(property_name)
+    definition_label = tk.Label(window, text=definition, wraplength=500, justify="left")
+    definition_label.pack(pady=10)
+
+    back_button = tk.Button(window, text="Back to Definitions Menu", command=show_search_entry_definitions)
+    back_button.pack(pady=10)
 
 def show_search_entry_RW():
     create_search_window("Real World Applications", button_click)
