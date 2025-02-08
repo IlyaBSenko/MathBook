@@ -24,6 +24,7 @@ def button_click(event=None, result_widget=None):
         square_root = get_square_root(num)
         multiples = get_multiples(num)
         perfect_square = is_perfect_square(num)
+        abundant = is_abundant(num)
 
 
         results = []
@@ -53,7 +54,8 @@ def button_click(event=None, result_widget=None):
             (triangular, f"{num} is triangular."),
             (palindrome, f"{num} is a palindrome."),
             (armstrong, f"{num} is an armstrong number."),
-            (perfect_square, f"{num} is a perfect square.")
+            (perfect_square, f"{num} is a perfect square."),
+            (abundant, f"{num} is abundant.")
         ]
 
         for condition, message in property_checks:

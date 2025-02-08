@@ -160,6 +160,11 @@ def is_perfect_square(num):
         return False
     return int(num ** 0.5) ** 2 == num
 
+def is_abundant(num):
+    if num <= 0:
+        return False
+    return sum(get_divisors(num)) - num > num
+
 
 # WANT TO ADD:
 # prime factors
