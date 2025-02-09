@@ -4,7 +4,8 @@ properties_definitions = {
     "Prime Number": "A prime number is a number greater than 1 that has no divisors other than 1 and itself.",
     "Abundant Number": "An abundant number is a number whose sum of proper divisors exceeds the number itself.",
     "Armstrong Number": "An Armstrong number (or narcissistic number) is a number equal to the sum of its digits each raised to the power of the number of digits.",
-    "Perfect Number": "A perfect number is a positive integer that is equal to the sum of its positive proper divisors, which are all the divisors of the number except for the number itself."
+    "Perfect Number": "A perfect number is a positive integer that is equal to the sum of its positive proper divisors, which are all the divisors of the number except for the number itself.",
+    
 }
 
 def get_property_names():
@@ -12,3 +13,24 @@ def get_property_names():
 
 def get_property_definition(property_name):
     return properties_definitions.get(property_name, "Definition not available.")
+
+
+# Order to add (Based on Size/Relevance)
+# Parity
+# Divisors
+# factors
+# multiples
+# fibonacci
+# Prime
+# Composite
+# Square
+# cube
+# Perfect
+# perfect square
+# sublime
+# triangular
+# palindrome
+# armstrong
+# automorphic
+# abundant
+# deficient

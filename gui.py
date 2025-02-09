@@ -26,6 +26,7 @@ def button_click(event=None, result_widget=None):
         multiples = get_multiples(num)
         perfect_square = is_perfect_square(num)
         abundant = is_abundant(num)
+        deficient = is_deficient(num)
         automorphic = is_automorphic(num)
 
         results = []
@@ -45,19 +46,20 @@ def button_click(event=None, result_widget=None):
             results.append(f"The square root of {num} is {square_root}")
             
         property_checks = [
-            (prime, f"{num} is prime."),
-            (composite, f"{num} is composite."),
-            (perfect, f"{num} is perfect."),
-            (square, f"{num} is a square number."),
-            (cube, f"{num} is a cube number."),
-            (fibonacci, f"{num} is a Fibonacci number."),
-            (sublime, f"{num} is sublime."),
-            (triangular, f"{num} is triangular."),
-            (palindrome, f"{num} is a palindrome."),
-            (armstrong, f"{num} is an armstrong number."),
-            (perfect_square, f"{num} is a perfect square."),
-            (abundant, f"{num} is abundant."),
-            (automorphic, f"{num} is automorphic.")
+            (prime, f"{num} is prime"),
+            (composite, f"{num} is composite"),
+            (perfect, f"{num} is perfect"),
+            (square, f"{num} is a square number"),
+            (cube, f"{num} is a cube number"),
+            (fibonacci, f"{num} is a Fibonacci number"),
+            (sublime, f"{num} is sublime"),
+            (triangular, f"{num} is triangular"),
+            (palindrome, f"{num} is a palindrome"),
+            (armstrong, f"{num} is an armstrong number"),
+            (perfect_square, f"{num} is a perfect square"),
+            (abundant, f"{num} is abundant"),
+            (automorphic, f"{num} is automorphic"),
+            (deficient, f"{num} is deficient")
         ]
 
         for condition, message in property_checks:

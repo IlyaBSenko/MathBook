@@ -165,6 +165,10 @@ def is_abundant(num):
         return False
     return sum(get_divisors(num)) - num > num
 
+def is_deficient(num):
+    if not is_abundant(num):
+        return True
+
 def is_automorphic(num):
     return str(num ** 2).endswith(str(num))
 
