@@ -1,10 +1,8 @@
 properties_definitions = {
-    "Automorphic": "An automorphic number is a number whose square ends with the number itself.",
-    "Perfect Square": "A perfect square is a number that can be expressed as the square of an integer.",
-    "Prime Number": "A prime number is a number greater than 1 that has no divisors other than 1 and itself.",
-    "Abundant Number": "An abundant number is a number whose sum of proper divisors exceeds the number itself.",
-    "Armstrong Number": "An Armstrong number (or narcissistic number) is a number equal to the sum of its digits each raised to the power of the number of digits.",
-    "Perfect Number": "A perfect number is a positive integer that is equal to the sum of its positive proper divisors, which are all the divisors of the number except for the number itself.",
+    "Parity": "The fact of being even or odd. ('The number's parity is even')",
+    "Divisors": "A divisor is a number that divides into another without a remainder.",
+    "Factors": "A factor of a number is a number that divides the given number evenly or exactly, leaving no remainder.",
+    "Multiples": "Multiples are number you get when you multiple a certain number by an integer."
     
 }
 
@@ -16,10 +14,7 @@ def get_property_definition(property_name):
 
 
 # Order to add (Based on Size/Relevance)
-# Parity
-# Divisors
-# factors
-# multiples
+
 # fibonacci
 # Prime
 # Composite
