@@ -1,6 +1,9 @@
 from gui import *
 
 properties_definitions = {
+    "Integer": "A number that is not a fraction. (A whole number)",
+    "Fraction": "A numerical quantity that is not a whole number.",
+    "Rational": "A rational number is a number that can be expressed as the quotient/fraction of two integers.",
     "Parity": "The fact of being even or odd. ('The number's parity is even')",
     "Divisors": "A divisor is a number that divides into another without a remainder.",
     "Factors": "A factor of a number is a number that divides the given number evenly or exactly, leaving no remainder.",
@@ -24,9 +27,6 @@ def get_property_definition(property_name):
 # Order to add (Based on Size/Relevance)
 
 # Square
-# cube
-# Perfect
-# perfect square
 # sublime
 # triangular
 # palindrome
