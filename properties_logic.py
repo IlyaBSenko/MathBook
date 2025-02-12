@@ -4,61 +4,55 @@ properties_logic.py
 This module contains functions to determine various mathematical properties of numbers.
 It includes functions for checking whether a number is prime, composite, perfect, a square,
 a cube, part of the Fibonacci sequence, and more. It also provides functions for calculating
-divisors, factorial, multiples, and additional properties. These functions are used by the
-MathBook application to provide informative results about numbers.
+divisors, factorial, multiples, and additional properties.
 """
 
-import math  # Import the math module for mathematical operations
+import math  # Import math to use math functions like sqrt and factorial
 
 def is_prime(num):
     """
     Checks if a number is prime.
-    
-    A prime number is a natural number greater than 1 that has no divisors other than 1 and itself.
     
     :param num: The number to check.
     :return: True if num is prime, False otherwise.
     """
     if num < 2:
         return False  # Numbers less than 2 are not prime
-    
+
+    # Loop from 2 to the integer square root of num
     for i in range(2, int(num ** 0.5) + 1):
-        if num % i == 0:
-            return False  # Found a divisor; therefore, not prime
-    
-    return True  # No divisors found; num is prime
+        if num % i == 0:  # If num is divisible by i, it is not prime
+            return False
+    return True  # If no divisors were found, num is prime
 
 def is_composite(num):
     """
     Checks if a number is composite.
     
-    A composite number is a positive integer that has at least one divisor other than 1 and itself.
-    
     :param num: The number to check.
     :return: True if num is composite, False otherwise.
     """
+    # A number is composite if it is greater than 1 and not prime
     return num > 1 and not is_prime(num)
 
 def is_perfect(num):
     """
     Checks if a number is perfect.
     
-    A perfect number is a positive number equal to the sum of its proper divisors.
-    
     :param num: The number to check.
     :return: True if num is perfect, False otherwise.
     """
     if num <= 0:
-        return False
+        return False  # Perfect numbers must be positive
 
-    divisor_sum = 1  # Start with 1 (always a divisor)
+    divisor_sum = 1  # Start with 1, which is always a divisor
+    # Loop from 2 to sqrt(num) to find divisors
     for i in range(2, int(num ** 0.5) + 1):
-        if num % i == 0:
-            divisor_sum += i
-            if i != num // i:
-                divisor_sum += num // i
-    
-    return divisor_sum == num
+        if num % i == 0:  # If i divides num evenly
+            divisor_sum += i  # Add i to the sum
+            if i != num // i:  # If i is not the square root of num
+                divisor_sum += num // i  # Add the complementary divisor
+    return divisor_sum == num  # Return True if the sum equals num
 
 def parity_checker(num):
     """
@@ -67,6 +61,7 @@ def parity_checker(num):
     :param num: The number to check.
     :return: "even" if num is even, "odd" otherwise.
     """
+    # Return "even" if divisible by 2, otherwise "odd"
     return "even" if num % 2 == 0 else "odd"
 
 def square_checker(num):
@@ -76,6 +71,7 @@ def square_checker(num):
     :param num: The number to check.
     :return: True if num is a perfect square, False otherwise.
     """
+    # Ensure the number is non-negative and compare the square of the integer square root to num.
     return num >= 0 and int(num ** 0.5) ** 2 == num
 
 def cube_checker(num):
@@ -85,81 +81,78 @@ def cube_checker(num):
     :param num: The number to check.
     :return: True if num is a perfect cube, False otherwise.
     """
+    # Compute cube root, round it and then cube it; check if it equals num.
     return round(num ** (1 / 3)) ** 3 == num
 
 def get_divisors(num):
     """
     Computes all divisors of a given number.
     
-    :param num: The number for which to find divisors.
+    :param num: The number to check.
     :return: A sorted list of divisors of num.
     """
-    divisors = []
+    divisors = []  # List to hold divisors
+    # Loop from 1 to the square root of the absolute value of num
     for i in range(1, int(abs(num) ** 0.5) + 1):
         if num % i == 0:
-            divisors.append(i)
+            divisors.append(i)  # Add the divisor
             if i != num // i:
-                divisors.append(num // i)
-    return sorted(divisors)
+                divisors.append(num // i)  # Add the complementary divisor if not a duplicate
+    return sorted(divisors)  # Return sorted list for readability
 
 def compute_factorial(num):
     """
     Computes the factorial of a number if it is small enough.
     
-    For numbers greater than 6, returns None because the factorial value may be too large.
-    
-    :param num: The number for which to compute the factorial.
-    :return: The factorial of num, or None if num is too big.
+    :param num: The number to compute the factorial for.
+    :return: The factorial of num, or None if num is greater than 6.
     """
     if num < 0:
-        return False  # Factorial not defined for negative numbers
+        return False  # Factorial is not defined for negative numbers
     if num <= 6:
-        return math.factorial(num)
-    return None
+        return math.factorial(num)  # Compute factorial using math.factorial
+    return None  # For larger numbers, return None
 
 def is_fibonacci(num):
     """
     Checks if a number is in the Fibonacci sequence.
     
-    A number is Fibonacci if one of (5*n^2 + 4) or (5*n^2 - 4) is a perfect square.
-    
     :param num: The number to check.
     :return: True if num is Fibonacci, False otherwise.
     """
     def is_perfect_square(n):
+        # Check if n is a perfect square
         return int(n ** 0.5) ** 2 == n
 
+    # Check if one of the expressions yields a perfect square
     return is_perfect_square(5 * num * num + 4) or is_perfect_square(5 * num * num - 4)
 
 def is_sublime(num):
     """
     Checks if a number is sublime.
     
-    A sublime number has both a perfect number of divisors and a perfect sum of those divisors.
-    
     :param num: The number to check.
     :return: True if num is sublime, False otherwise.
     """
     if num <= 1:
-        return False
-    count = len(get_divisors(num))
-    total = sum(get_divisors(num))
+        return False  # Numbers less than or equal to 1 cannot be sublime
+    count = len(get_divisors(num))  # Count of divisors
+    total = sum(get_divisors(num))   # Sum of divisors
+    # Return True only if both the count and the total are perfect numbers
     return is_perfect(count) and is_perfect(total)
 
 def is_triangular(num):
     """
     Checks if a number is triangular.
     
-    A triangular number can form an equilateral triangle.
-    
     :param num: The number to check.
     :return: True if num is triangular, False otherwise.
     """
     if num < 0:
-        return False
-    # Solve the quadratic equation n(n+1)/2 = num
+        return False  # Triangular numbers are non-negative
+    # Solve the quadratic equation n(n+1)/2 = num for n
     x = (-1 + (1 + 8 * num) ** 0.5) / 2
-    return x == int(x)
+    return x == int(x)  # If x is an integer, num is triangular
 
 def is_palindrome(num):
     """
@@ -168,62 +161,60 @@ def is_palindrome(num):
     :param num: The number to check.
     :return: True if num is a palindrome, False otherwise.
     """
-    s = str(num)
-    return s == s[::-1]
+    s = str(num)  # Convert the number to a string
+    return s == s[::-1]  # Check if the string is the same when reversed
 
 def is_armstrong(num):
     """
     Checks if a number is an Armstrong number.
     
-    An Armstrong number equals the sum of its digits each raised to the power of the number of digits.
-    
     :param num: The number to check.
     :return: True if num is Armstrong, False otherwise.
     """
-    digits = str(num)
-    power = len(digits)
-    total = sum(int(digit) ** power for digit in digits)
-    return total == num
+    digits = str(num)  # Convert number to string to iterate over digits
+    power = len(digits)  # The number of digits
+    total = sum(int(digit) ** power for digit in digits)  # Sum each digit raised to the power
+    return total == num  # Return True if the total equals the original number
 
 def get_square_root(num):
     """
     Computes the square root of a number formatted to three decimal places.
     
-    :param num: The number for which to compute the square root.
-    :return: The square root as a string formatted to 3 decimal places, 0 if num is 0,
-             or False if num is negative.
+    :param num: The number to compute the square root for.
+    :return: The square root as a string (3 decimals), 0 if num is 0, or False if negative.
     """
     if num < 0:
-        return False
+        return False  # Negative numbers do not have a real square root
     if num == 0:
-        return 0
-    return f"{math.sqrt(num):.3f}"
+        return 0  # The square root of 0 is 0
+    return f"{math.sqrt(num):.3f}"  # Format the square root to 3 decimal places
 
 def get_perfect_square_root(num):
     """
     If a number is a perfect square, returns its integer square root.
     
     :param num: The number to check.
-    :return: The integer square root if num is a perfect square, 0 if num is 0,
-             or False if num is negative.
+    :return: The integer square root if num is a perfect square; 0 for 0; False if negative.
     """
     if num < 0:
-        return False
+        return False  # Negative numbers cannot be perfect squares
     if num == 0:
-        return 0
+        return 0  # The square root of 0 is 0
+    # Iterate through all numbers from 0 up to num to find the square root
     for i in range(num + 1):
         if i * i == num:
-            return i
+            return i  # Found the integer square root
 
 def get_multiples(num):
     """
     Computes the first 5 multiples of a given number.
     
-    :param num: The number for which to compute multiples.
-    :return: A list containing the first 5 multiples of num. Returns an empty list for 0.
+    :param num: The number to compute multiples for.
+    :return: A list of the first 5 multiples; an empty list for 0.
     """
     if num == 0:
-        return []
+        return []  # Return an empty list for 0
+    # Use list comprehension to multiply num by each number in the list
     return [num * i for i in [1, 2, 3, 4, 5]]
 
 def is_perfect_square(num):
@@ -234,42 +225,37 @@ def is_perfect_square(num):
     :return: True if num is a perfect square, False otherwise.
     """
     if num < 0:
-        return False
-    return int(num ** 0.5) ** 2 == num
+        return False  # Negative numbers cannot be perfect squares
+    return int(num ** 0.5) ** 2 == num  # Compare square of the integer square root to num
 
 def is_abundant(num):
     """
     Checks if a number is abundant.
     
-    A number is abundant if the sum of its proper divisors is greater than the number.
-    
     :param num: The number to check.
     :return: True if num is abundant, False otherwise.
     """
     if num <= 0:
-        return False
+        return False  # Abundant numbers are positive
+    # Check if the sum of proper divisors (excluding the number itself) is greater than num
     return sum(get_divisors(num)) - num > num
 
 def is_deficient(num):
     """
     Checks if a number is deficient.
     
-    A number is deficient if the sum of its proper divisors is less than the number.
-    (Note: This definition may classify perfect numbers as deficient.)
-    
     :param num: The number to check.
     :return: True if num is deficient, False otherwise.
     """
-    # Using a more explicit check:
+    # A number is deficient if the sum of its proper divisors is less than the number
     return (sum(get_divisors(num)) - num) < num
 
 def is_automorphic(num):
     """
     Checks if a number is automorphic.
     
-    A number is automorphic if its square ends with the same digits as the number.
-    
     :param num: The number to check.
     :return: True if num is automorphic, False otherwise.
     """
+    # Check if the square of num (as a string) ends with num (as a string)
     return str(num ** 2).endswith(str(num))
