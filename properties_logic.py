@@ -8,7 +8,6 @@ divisors, factorial, multiples, and additional properties. These functions are u
 MathBook application to provide informative results about numbers.
 """
 
-from gui import *  # Import GUI components (note: be cautious of circular dependencies)
 import math        # Import the math module for mathematical operations
 
 def is_prime(num):

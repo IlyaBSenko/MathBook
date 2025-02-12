@@ -7,8 +7,6 @@ to retrieve the names and definitions. These definitions are used in the MathBoo
 to educate users about different mathematical concepts.
 """
 
-from gui import *  # Import GUI module (if needed for integration)
-
 # A dictionary mapping mathematical property names to their definitions.
 properties_definitions = {
     "Integer": "A number that is not a fraction. (A whole number)",
