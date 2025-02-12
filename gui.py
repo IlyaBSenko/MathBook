@@ -44,7 +44,7 @@ def button_click(event=None, result_widget=None):
         triangular = is_triangular(num)       # True if num is a triangular number, else False
         palindrome = is_palindrome(num)       # True if num is a palindrome, else False
         armstrong = is_armstrong(num)         # True if num is an Armstrong number, else False
-        perfect_square_root = is_perfect_SR(num)  # Returns the integer square root if perfect, else False or 0
+        perfect_square_root = get_perfect_square_root(num)  # Returns the integer square root if perfect, else False or 0
         square_root = get_square_root(num)    # The square root of num formatted to 3 decimal places (if applicable)
         multiples = get_multiples(num)        # First five multiples of num
         perfect_square = is_perfect_square(num)  # True if num is a perfect square, else False

@@ -248,7 +248,7 @@ def get_square_root(num):
     # Compute the square root using math.sqrt and format it to three decimal places
     return f"{math.sqrt(num):.3f}"
 
-def is_perfect_SR(num):
+def get_perfect_square_root(num):
     """
     Checks if a number is a perfect square and returns its integer square root if it is.
     
