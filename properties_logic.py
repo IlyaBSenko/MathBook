@@ -168,11 +168,9 @@ def is_sublime(num):
     count = len(get_divisors(num))  # Count the number of divisors
     total = sum(get_divisors(num))   # Sum all the divisors
     
-    # If both the count and the total are perfect numbers, num is considered sublime
-    if is_perfect(count) and is_perfect(total):
-        return True
-    else:
-        return False 
+    # Return True only if both the count and the total are perfect numbers
+    return is_perfect(count) and is_perfect(total)
+        
 
 def is_triangular(num):
     """

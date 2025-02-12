@@ -38,7 +38,7 @@ def button_click(event=None, result_widget=None):
         square = square_checker(num)          # True if num is a perfect square, else False
         cube = cube_checker(num)              # True if num is a perfect cube, else False
         divisors = get_divisors(num)          # List of all divisors of num
-        factorial = compute_factorial(num)         # Factorial of num if num is small enough; else None
+        factorial = compute_factorial(num)    # Factorial of num if num is small enough; else None
         fibonacci = is_fibonacci(num)         # True if num is in the Fibonacci sequence, else False
         sublime = is_sublime(num)             # True if num is a sublime number, else False
         triangular = is_triangular(num)       # True if num is a triangular number, else False
