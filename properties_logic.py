@@ -172,7 +172,7 @@ def is_sublime(num):
     if is_perfect(count) and is_perfect(total):
         return True
     else:
-        return False
+        return False 
 
 def is_triangular(num):
     """
