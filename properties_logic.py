@@ -208,28 +208,16 @@ def is_armstrong(num):
     """
     Checks if a number is an Armstrong number.
     
-    An Armstrong number is one that is equal to the sum of its own digits each raised to the power of 3.
-    (Note: This implementation is tailored for three-digit numbers.)
+    An Armstrong number is equal to the sum of its digits each raised to the power
+    of the number of digits in the number.
     
     :param num: The number to check.
     :return: True if num is an Armstrong number, False otherwise.
     """
-    true_num = num             # Store the original number
-    str_num = str(num)         # Convert the number to a string to iterate over each digit
-    num_as_list = []           # Initialize a list to hold each digit as a string
-
-    # Add each digit from the string into the list
-    for num in str_num:
-        num_as_list.append(num)
-
-    total = 0  # Initialize the total sum
-    
-    # Sum each digit raised to the power of 3
-    for num in num_as_list:
-        total += (int(num) ** 3)
-
-    if total == true_num:  # If the sum equals the original number, it's an Armstrong number
-        return True
+    digits = str(num) # turn num into a string called digits
+    power = len(digits) # make the length of the string digits into a variable called power
+    total = sum(int(digit) ** power for digit in digits) 
+    return total == num
 
 def get_square_root(num):
     """
