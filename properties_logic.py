@@ -97,11 +97,11 @@ def is_triangular(num):
 
     return x == int(x)
 
-# with help from thomas for crazy python trick
 def is_palindrome(num):
     if len(str(num)) < 2:
         return True
 
+    # help from thomas
     return str(num) == str(num)[::-1]
 
 
