@@ -171,6 +171,8 @@ def is_sublime(num):
     # If both the count and the total are perfect numbers, num is considered sublime
     if is_perfect(count) and is_perfect(total):
         return True
+    else:
+        return False
 
 def is_triangular(num):
     """
@@ -264,7 +266,7 @@ def get_multiples(num):
     :return: A list containing the first 5 multiples of num, or a special message if num is 0.
     """
     if num == 0:  # Special case: 0 is a multiple of every number
-        return "0 is a multiple of every number."
+        return []
     
     multiples_list = [1, 2, 3, 4, 5]  # Multipliers for the first 5 multiples
     results = []  # Initialize a list to store the results
