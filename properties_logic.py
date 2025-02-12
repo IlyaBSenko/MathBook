@@ -116,7 +116,7 @@ def get_divisors(num):
                 
     return sorted(divisors)  # Return the divisors in sorted order
 
-def is_factorial(num):
+def compute_factorial(num):
     """
     Computes the factorial of a number if it is small enough.
     
