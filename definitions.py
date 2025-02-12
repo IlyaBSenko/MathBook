@@ -11,6 +11,7 @@ properties_definitions = {
     "Fibonacci Series": "A series of numbers in which each number (Fibonacci number) is the sum of the two preceding number.",
     "Prime numbers": "A number is prime if it can only be divided by itself and 1.",
     "Composite": "A composite number is a positive integer that has more than two factors. They are the opposite of prime numbers.",
+    "Imaginary numbers": "A number that is expressed in terms of the square root of a negative number (usually the square root of −1, represented by i or j ).",
     "Perfect": "A perfect number is a number that is equal to the sum of its factors other than the number itself.",
     "Perfect Square": "A perfect square is a number that can be expressed as the product of an integer by itself or as the second exponent of an integer.",
     "Sublime numbers": "A sublime number is a positive integer that has a perfect number of positive factors, and the sum of those factors is also a perfect number. For example, 12 is a sublime number because it has six positive factors (1, 2, 3, 4, 6, and 12), and the sum of those factors is 28, which is also a perfect number.",
@@ -34,5 +35,4 @@ def get_property_definition(property_name):
 # Order to add (Based on Size/Relevance)
 
 # Square
-# imaginary numbers
 # real numbers
