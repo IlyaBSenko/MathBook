@@ -7,7 +7,7 @@ to retrieve the names and definitions. These definitions are used in the MathBoo
 to educate users about different mathematical concepts.
 """
 
-# A dictionary mapping mathematical property names to their definitions.
+# Dictionary mapping mathematical property names to their definitions.
 properties_definitions = {
     "Integer": "A number that is not a fraction. (A whole number)",
     "Fraction": "A numerical quantity that is not a whole number.",
@@ -22,20 +22,27 @@ properties_definitions = {
     "Imaginary numbers": "A number that is expressed in terms of the square root of a negative number (usually the square root of −1, represented by i or j).",
     "Perfect": "A perfect number is a number that is equal to the sum of its factors other than the number itself.",
     "Perfect Square": "A perfect square is a number that can be expressed as the product of an integer by itself or as the second exponent of an integer.",
-    "Sublime numbers": "A sublime number is a positive integer that has a perfect number of positive factors, and the sum of those factors is also a perfect number. For example, 12 is a sublime number because it has six positive factors (1, 2, 3, 4, 6, and 12), and the sum of those factors is 28, which is also a perfect number.",
-    "Triangular Numbers": "A triangular number fits into a series (1, 3, 6, 10, 15, etc.) obtained by the continued summation of natural numbers. They can be visually represented in the shape of a triangle.",
+    "Sublime numbers": ("A sublime number is a positive integer that has a perfect number of positive factors, and the sum "
+                        "of those factors is also a perfect number. For example, 12 is sublime because it has six positive "
+                        "factors (1, 2, 3, 4, 6, and 12), and the sum of those factors is 28, which is also a perfect number."),
+    "Triangular Numbers": ("A triangular number fits into a series (1, 3, 6, 10, 15, etc.) obtained by the continued "
+                           "summation of natural numbers. They can be visually represented in the shape of a triangle."),
     "Palindromic number": "A number is palindromic if it remains the same when its digits are reversed.",
-    "Armstrong number": "An Armstrong number is a number that is equal to the sum of its own digits, each raised to the power of the number of digits in that number.",
-    "Automorphic number": "An automorphic number is an integer whose square ends with the same digits as the number itself. For example, 25 squared is 625, so 25 is automorphic.",
-    "Abundant numbers": "A positive integer is abundant if the sum of its proper divisors is greater than the number itself. The difference is known as the abundance.",
-    "Deficient numbers": "A deficient number is a positive integer for which the sum of its proper divisors is less than the number itself. They are essentially the opposite of abundant numbers."
+    "Armstrong number": ("An Armstrong number is a number that is equal to the sum of its own digits, each raised to the "
+                         "power of the number of digits in that number."),
+    "Automorphic number": ("An automorphic number is an integer whose square ends with the same digits as the number itself. "
+                           "For example, 25 squared is 625, so 25 is automorphic."),
+    "Abundant numbers": ("A positive integer is abundant if the sum of its proper divisors is greater than the number itself. "
+                         "The difference is known as the abundance."),
+    "Deficient numbers": ("A deficient number is a positive integer for which the sum of its proper divisors is less than the "
+                          "number itself. They are essentially the opposite of abundant numbers.")
 }
 
 def get_property_names():
     """
     Retrieves all property names for which definitions are available.
     
-    :return: An iterable (keys view) of the property names from the definitions dictionary.
+    :return: An iterable of the property names (dictionary keys).
     """
     return properties_definitions.keys()
 
@@ -44,6 +51,6 @@ def get_property_definition(property_name):
     Retrieves the definition for a specified property.
     
     :param property_name: The name of the property.
-    :return: The definition string if available, otherwise a default message.
+    :return: The definition string if available; otherwise, a default message.
     """
     return properties_definitions.get(property_name, "Definition not available.")
