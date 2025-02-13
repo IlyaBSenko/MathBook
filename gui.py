@@ -146,6 +146,7 @@ def create_search_window(title, button_click_callback):
     :param button_click_callback: The callback function to process the search input.
     """
     clear_window()  # Remove any existing widgets from the window
+        
 
     # Create and pack a label for the title
     title_label = tk.Label(window, text=title, font=("Arial", 14, "bold"))

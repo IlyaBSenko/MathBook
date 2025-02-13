@@ -53,4 +53,4 @@ def get_property_definition(property_name):
     :param property_name: The name of the property.
     :return: The definition string if available; otherwise, a default message.
     """
-    return properties_definitions.get(property_name, "Definition not available.")
+    return properties_definitions.get(property_name)
