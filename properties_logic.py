@@ -154,6 +154,7 @@ def is_triangular(num):
     x = (-1 + (1 + 8 * num) ** 0.5) / 2
     return x == int(x)  # If x is an integer, num is triangular
 
+# help from thomas
 def is_palindrome(num):
     """
     Checks if a number is palindromic.
