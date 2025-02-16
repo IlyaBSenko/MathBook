@@ -98,7 +98,7 @@ def get_divisors(num):
             divisors.append(i)  # Add the divisor
             if i != num // i:
                 divisors.append(num // i)  # Add the complementary divisor if not a duplicate
-    return sorted(divisors)  # Return sorted list for readability
+    return sorted(divisors)  # Return sorted list 
 
 def compute_factorial(num):
     """
@@ -111,7 +111,7 @@ def compute_factorial(num):
         return False  # Factorial is not defined for negative numbers
     if num <= 6:
         return math.factorial(num)  # Compute factorial using math.factorial
-    return None  # For larger numbers, return None
+    return None  # For larger numbers, return None or it will crash program
 
 def is_fibonacci(num):
     """
