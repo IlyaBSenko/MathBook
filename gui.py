@@ -221,6 +221,8 @@ def show_definitions_menu():
     back_button = tk.Button(window, text="Back to Main Menu", command=show_main_menu)
     back_button.pack(pady=10)
 
+
+# FIXME: button layout for definitions
 def show_definition(property_name):
     """
     Displays the definition of a selected property.
@@ -239,10 +241,17 @@ def show_definition(property_name):
     back_button = tk.Button(window, text="Back to Definitions Menu", command=show_definitions_menu)
     back_button.pack(pady=10)
 
+# FIXME: finish searchentry real world
 def show_search_entry_RW():
     """
     Opens the search window for the Real World Applications topic.
     """
+    clear_window() 
+    
+    title_label = tk.Label(window, text=property_name, font=("Arial", 14, "bold"))
+    title_label.pack(pady=10)
+    
+    definition = get_property_definition(property_name)
     create_search_window("Real World Applications", button_click)
 
 window = tk.Tk()           
