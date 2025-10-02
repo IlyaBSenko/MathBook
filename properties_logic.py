@@ -54,7 +54,7 @@ def get_divisors(num):
 def compute_factorial(num):
     if num < 0:
         return False  
-    if num <= 6:
+    if num <= 10:
         return math.factorial(num)  
     return None  
 
