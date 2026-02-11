@@ -125,3 +125,7 @@ def is_deficient(num):
 
 def is_automorphic(num):
     return str(num ** 2).endswith(str(num))
+
+def is_alphabetical(num):
+    if num == 40:
+        return num

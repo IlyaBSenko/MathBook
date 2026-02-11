@@ -45,7 +45,8 @@ def button_click(event=None, result_widget=None):
         perfect_square = is_perfect_square(num) 
         abundant = is_abundant(num)             
         deficient = is_deficient(num)           
-        automorphic = is_automorphic(num)       
+        automorphic = is_automorphic(num)
+        alphabetical = is_alphabetical(num)
 
         results = []  
 
@@ -78,7 +79,8 @@ def button_click(event=None, result_widget=None):
             (perfect_square, f"{num} is a perfect square"),
             (abundant, f"{num} is abundant"),
             (automorphic, f"{num} is automorphic"),
-            (deficient, f"{num} is deficient")
+            (deficient, f"{num} is deficient"),
+            (alphabetical, f"{num} is alphabetical")
         ]
         for condition, message in property_checks:
             if condition:
